@@ -35,7 +35,7 @@ const Navbar = () => {
             <a className="nav-link" href="/messages">Messages</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/aichat">AI Chatbot</a>
+            <a className="nav-link" href="http://localhost:8501/">AI Chatbot</a>
           </li>
           <li className="nav-item">
             <button className="btn btn-outline-light logout-btn" onClick={handleLogout}>Logout</button>
