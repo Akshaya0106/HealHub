@@ -17,7 +17,7 @@ const ProviderProfile = () => {
   useEffect(() => {
     const fetchProvider = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/providers/${id}`);
+        const response = await axios.get(`https://healhub-5by5.onrender.com/providers/${id}`);
         console.log("Fetched Provider Data:", response.data);
         setProvider(response.data);
       } catch (err) {

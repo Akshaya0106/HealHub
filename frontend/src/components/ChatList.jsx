@@ -6,7 +6,7 @@ const ChatList = ({ setSelectedChat }) => {
 
   useEffect(() => {
     const fetchChats = async () => {
-      const res = await axios.get("http://localhost:5000/auth/");
+      const res = await axios.get("https://healhub-5by5.onrender.com/auth/");
       setChats(res.data);
     };
 

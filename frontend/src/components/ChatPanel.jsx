@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://healhub-5by5.onrender.com");
 
 const ChatPanel = ({ loggedInUserId, selectedUser }) => {
   const [messages, setMessages] = useState([]);

@@ -12,7 +12,7 @@ const Dashboard = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/auth/profile", {
+        const res = await axios.get("https://healhub-5by5.onrender.com/auth/profile", {
           headers: { Authorization: token },
         });
         setUser(res.data);
@@ -26,7 +26,7 @@ const Dashboard = () => {
     const fetchProviders = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/providers", {
+        const res = await axios.get("https://healhub-5by5.onrender.com/providers", {
           headers: { Authorization: token },
         });
         setProviders(res.data);

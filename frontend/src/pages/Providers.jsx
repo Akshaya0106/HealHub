@@ -26,7 +26,7 @@ const Providers = () => {
 
     const fetchProviders = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/providers"); // Fetch all providers
+        const response = await axios.get("https://healhub-5by5.onrender.com/providers"); // Fetch all providers
         console.log("API Response:", response.data);
         const filteredProviders = response.data.filter(
           (provider) => provider.serviceType === selectedService

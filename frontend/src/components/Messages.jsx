@@ -8,7 +8,7 @@ const Messages = ({ selectedChat, userId }) => {
 
   useEffect(() => {
     const fetchMessages = async () => {
-      const res = await axios.get(`http://localhost:5000/messages/${selectedChat.chatId}`);
+      const res = await axios.get(`https://healhub-5by5.onrender.com/messages/${selectedChat.chatId}`);
       setMessages(res.data);
     };
 
@@ -26,7 +26,7 @@ const Messages = ({ selectedChat, userId }) => {
     };
   
     try {
-      const res = await axios.post("http://localhost:5000/messages", messageData);
+      const res = await axios.post("https://healhub-5by5.onrender.com/messages", messageData);
       const sentMessage = res.data.newMessage;
   
       setMessages((prev) => [...prev, sentMessage]); // Update UI instantly

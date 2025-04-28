@@ -43,7 +43,7 @@ const Register = () => {
     console.log(formData)
 
     try {
-      const res = await axios.post("http://localhost:5000/auth/register", formData);
+      const res = await axios.post("https://healhub-5by5.onrender.com/auth/register", formData);
       setSuccess("Registration successful! Redirecting...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (error) {

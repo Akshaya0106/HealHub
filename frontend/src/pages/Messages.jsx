@@ -28,7 +28,7 @@ const Messages = () => {
     const fetchUserChats = async () => {
       if (!userId) return;
       try {
-        const res = await axios.get(`http://localhost:5000/auth/${userId}/chats`);
+        const res = await axios.get(`https://healhub-5by5.onrender.com/auth/${userId}/chats`);
         setUserChats(res.data);
       } catch (error) {
         console.error("Error fetching user chats:", error);
@@ -45,7 +45,7 @@ const Messages = () => {
       const userDetails = {};
       for (const chatId of userChats) {
         try {
-          const res = await axios.get(`http://localhost:5000/messages/users/${chatId}`);
+          const res = await axios.get(`https://healhub-5by5.onrender.com/messages/users/${chatId}`);
           userDetails[chatId] = res.data;
         } catch (error) {
           console.error(`Error fetching user ${chatId}:`, error);
@@ -66,14 +66,14 @@ const Messages = () => {
 
     const fetchMessages = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/messages/${userId}/${selectedChat.chatId}`);
+        const res = await axios.get(`https://healhub-5by5.onrender.com/messages/${userId}/${selectedChat.chatId}`);
         setMessages(res.data);
 
         // Check if the last message is received and mark it as seen
         if (res.data.length > 0) {
           const lastMessage = res.data[res.data.length - 1];
           if (lastMessage.sender !== userId && !lastMessage.seen) {
-            await axios.put(`http://localhost:5000/messages/mark-seen/${userId}/${selectedChat.chatId}`);
+            await axios.put(`https://healhub-5by5.onrender.com/messages/mark-seen/${userId}/${selectedChat.chatId}`);
             setMessages((prevMessages) =>
               prevMessages.map((msg) => ({ ...msg, seen: true }))
             );
@@ -91,7 +91,7 @@ const Messages = () => {
 
   const markMessageAsSeen = async (messageId) => {
     try {
-      await axios.patch(`http://localhost:5000/messages/${messageId}/seen`);
+      await axios.patch(`https://healhub-5by5.onrender.com/messages/${messageId}/seen`);
       setMessages((prevMessages) =>
         prevMessages.map((msg) =>
           msg._id === messageId ? { ...msg, seen: true } : msg
@@ -111,7 +111,7 @@ const Messages = () => {
         message: newMessage,
         conversationId: selectedChat.chatId,
       };
-      const res = await axios.post("http://localhost:5000/messages", messageData);
+      const res = await axios.post("https://healhub-5by5.onrender.com/messages", messageData);
       setMessages((prevMessages) => [...prevMessages, { ...res.data, seen: false }]);
       setNewMessage("");
     } catch (error) {
